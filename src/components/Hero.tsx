@@ -66,83 +66,12 @@ const Hero = () => {
 
       <div className="container relative z-10 px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Profile Image */}
+          {/* Left side - Text content */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex justify-center order-2 lg:order-1"
-          >
-            <motion.div
-              style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d",
-              }}
-              className="relative w-80 h-80 md:w-96 md:h-96"
-            >
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent rounded-full blur-3xl opacity-40 animate-glow" />
-
-              {/* Glass frame with 3D effect */}
-              <motion.div
-                animate={{
-                  y: [0, -20, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative glass-card glass-shadow rounded-full p-2 hover:scale-105 transition-transform duration-500"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <div className="relative rounded-full overflow-hidden border-4 border-primary/20">
-                  <img
-                    src={profileImage}
-                    alt="Rajveer Bairagi"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Rim light effect */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/20 to-secondary/20 mix-blend-overlay" />
-                </div>
-              </motion.div>
-
-              {/* Orbiting elements */}
-              {[0, 120, 240].map((rotation, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute top-1/2 left-1/2 w-3 h-3 rounded-full"
-                  style={{
-                    background: i === 0 ? "hsl(200 100% 50%)" : i === 1 ? "hsl(270 80% 60%)" : "hsl(280 90% 65%)",
-                  }}
-                  animate={{
-                    rotate: 360,
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: i * 0.3,
-                  }}
-                >
-                  <div
-                    style={{
-                      transform: `rotate(${rotation}deg) translateX(200px)`,
-                    }}
-                    className="w-3 h-3 rounded-full shadow-lg shadow-current"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Right side - Text content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 order-1 lg:order-2"
+            className="space-y-8"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
