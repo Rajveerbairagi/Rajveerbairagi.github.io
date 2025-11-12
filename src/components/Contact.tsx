@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Message sent!",
+      title: "Message sent! 🚀",
       description: "Thanks for reaching out. I'll get back to you soon!",
     });
     setFormData({ name: "", email: "", message: "" });
@@ -30,7 +30,23 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/5 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/5 via-background to-background" />
+      
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </div>
       
       <div className="container relative z-10 px-4">
         <motion.div
@@ -39,11 +55,11 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold font-display text-center mb-4">
             Let's <span className="gradient-text">Collaborate</span>
           </h2>
-          <p className="text-center text-muted-foreground mb-12 text-lg">
-            Have a project in mind? Let's build something impactful together!
+          <p className="text-center text-muted-foreground mb-16 text-lg">
+            Let's Build Something That Stands Out ✨
           </p>
         </motion.div>
 
@@ -55,9 +71,9 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <form onSubmit={handleSubmit} className="glass-card glass-shadow rounded-3xl p-8 space-y-6">
+            <form onSubmit={handleSubmit} className="glass-card glass-shadow rounded-3xl p-8 space-y-6 hover:border-primary/30 transition-all duration-500">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground">Name</Label>
+                <Label htmlFor="name" className="text-foreground font-semibold">Name</Label>
                 <Input
                   id="name"
                   name="name"
@@ -65,12 +81,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your name"
-                  className="glass-card border-border/50 focus:border-primary/50 transition-all"
+                  className="glass-card border-border/50 focus:border-primary/50 transition-all h-12"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground">Email</Label>
+                <Label htmlFor="email" className="text-foreground font-semibold">Email</Label>
                 <Input
                   id="email"
                   name="email"
@@ -79,12 +95,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
-                  className="glass-card border-border/50 focus:border-primary/50 transition-all"
+                  className="glass-card border-border/50 focus:border-primary/50 transition-all h-12"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-foreground">Message</Label>
+                <Label htmlFor="message" className="text-foreground font-semibold">Message</Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -92,7 +108,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Tell me about your project..."
-                  rows={5}
+                  rows={6}
                   className="glass-card border-border/50 focus:border-primary/50 transition-all resize-none"
                 />
               </div>
@@ -100,8 +116,9 @@ const Contact = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-gradient-to-r from-primary to-secondary border-0 glow-effect hover:scale-105 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-primary to-secondary border-0 hover:scale-105 transition-all duration-300 animate-pulse-glow group"
               >
+                <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 Send Message
               </Button>
             </form>
@@ -115,11 +132,11 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <div className="glass-card glass-shadow rounded-3xl p-8 space-y-8">
+            <div className="glass-card glass-shadow rounded-3xl p-8 space-y-8 hover:border-primary/30 transition-all duration-500">
               <div>
-                <h3 className="text-2xl font-bold mb-6 gradient-text">Get in Touch</h3>
-                <p className="text-muted-foreground">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                <h3 className="text-2xl font-bold font-display mb-4 gradient-text">Get in Touch</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Let's create something amazing together!
                 </p>
               </div>
 
@@ -147,10 +164,14 @@ const Contact = () => {
                   <motion.a
                     key={index}
                     href={item.href}
-                    whileHover={{ scale: 1.02 }}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.03, x: 5 }}
                     className="flex items-center space-x-4 p-4 glass-card rounded-2xl hover:border-primary/50 transition-all group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary p-3 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary p-3 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                       <item.icon className="w-full h-full text-foreground" />
                     </div>
                     <div>
@@ -162,11 +183,18 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="glass-card glass-shadow rounded-3xl p-6 bg-gradient-to-br from-primary/10 to-secondary/10">
-              <p className="text-center text-sm text-muted-foreground">
-                Available for freelance opportunities and exciting collaborations
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              whileHover={{ scale: 1.02 }}
+              className="glass-card glass-shadow rounded-3xl p-6 bg-gradient-to-br from-primary/10 to-secondary/10 text-center border-primary/20 transition-all duration-500"
+            >
+              <p className="text-sm text-foreground font-semibold">
+                ✨ Available for freelance opportunities and exciting collaborations
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
