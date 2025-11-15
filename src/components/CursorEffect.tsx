@@ -6,17 +6,21 @@ const CursorEffect = () => {
   const [trails, setTrails] = useState<{ x: number; y: number; id: number }[]>([]);
 
   useEffect(() => {
+    // Disable cursor effects on mobile/tablet
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) return;
+
     let trailId = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
 
-      // Add trail
+      // Add trail (reduced for performance)
       const newTrail = { x: e.clientX, y: e.clientY, id: trailId++ };
-      setTrails((prev) => [...prev.slice(-8), newTrail]);
+      setTrails((prev) => [...prev.slice(-6), newTrail]);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
