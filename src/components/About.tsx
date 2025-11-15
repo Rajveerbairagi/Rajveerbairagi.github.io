@@ -1,39 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Download, Code2, Rocket, Users } from "lucide-react";
-
-const floatingIcons = [
-  { Icon: Code2, delay: 0, position: "top-10 left-10" },
-  { Icon: Rocket, delay: 0.3, position: "top-20 right-20" },
-  { Icon: Users, delay: 0.6, position: "bottom-20 left-20" },
-];
+import { Download, Code2, Rocket, TrendingUp, Briefcase } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
+    <section id="about" className="py-16 md:py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/5" />
-      
-      {/* Floating 3D icons background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {floatingIcons.map(({ Icon, delay, position }, index) => (
-          <motion.div
-            key={index}
-            className={`absolute ${position} opacity-10`}
-            animate={{
-              y: [0, -30, 0],
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              duration: 6,
-              delay,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <Icon className="w-32 h-32 text-primary" />
-          </motion.div>
-        ))}
-      </div>
       
       <div className="container relative z-10 px-4">
         <motion.div
@@ -43,7 +15,7 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-6xl font-bold font-display text-center mb-12">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-center mb-12">
             About <span className="gradient-text">Me</span>
           </h2>
 
@@ -52,41 +24,58 @@ const About = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ scale: 1.02 }}
-            className="glass-card glass-shadow rounded-3xl p-8 md:p-12 space-y-6 hover:border-primary/30 transition-all duration-500"
+            whileHover={{ scale: 1.01 }}
+            className="glass-card glass-shadow rounded-3xl p-6 md:p-10 space-y-6 hover:border-primary/30 transition-all duration-500"
           >
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-4 text-muted-foreground text-lg leading-relaxed"
+              className="space-y-6"
             >
-              <p>
-                Hi! I'm <span className="text-primary font-semibold">Rajveer Bairagi</span>, 
-                a passionate <span className="text-secondary font-semibold">Web Developer</span> and 
-                <span className="text-secondary font-semibold"> Social Media Marketing Expert</span> with 
-                a drive to create impactful digital experiences.
-              </p>
-              
-              <p>
-                As the <span className="text-primary font-semibold">Founder of WAXA</span>, I lead innovative 
-                marketing campaigns that blend creativity with strategy. I'm also proud to serve as an 
-                <span className="text-primary font-semibold"> Admin at Growth Driven Pioneers (GDP)</span>, 
-                where I help shape the future of digital entrepreneurship.
-              </p>
-              
-              <p>
-                My expertise spans across <span className="text-foreground font-semibold">full-stack web development</span>, 
-                <span className="text-foreground font-semibold"> video editing</span>, 
-                <span className="text-foreground font-semibold"> C++ programming</span>, and 
-                <span className="text-foreground font-semibold"> UI/UX design</span>. I'm constantly 
-                exploring new technologies and pushing the boundaries of what's possible in the digital space.
-              </p>
-              
-              <p className="text-xl font-semibold text-foreground">
-                Let's collaborate and build something extraordinary together! ✨
-              </p>
+              {/* Main intro */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-2xl glass-card flex-shrink-0">
+                  <Code2 className="w-6 h-6 text-primary" />
+                </div>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed flex-1">
+                  <span className="text-foreground font-bold">Web Developer</span> and{" "}
+                  <span className="text-foreground font-bold">Creative Marketer</span> passionate about crafting digital experiences that drive results.
+                </p>
+              </div>
+
+              {/* Roles */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-2xl glass-card flex-shrink-0">
+                  <Briefcase className="w-6 h-6 text-secondary" />
+                </div>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed flex-1">
+                  <span className="text-primary font-semibold">Founder @ WAXA</span> — leading innovative marketing campaigns.
+                  <br />
+                  <span className="text-secondary font-semibold">Admin @ GDP</span> — shaping digital entrepreneurship.
+                </p>
+              </div>
+
+              {/* Skills */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-2xl glass-card flex-shrink-0">
+                  <Rocket className="w-6 h-6 text-accent" />
+                </div>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed flex-1">
+                  Expertise: <span className="text-foreground font-semibold">React, Tailwind, UI/UX Design, Video Editing, C++, App Development</span>
+                </p>
+              </div>
+
+              {/* CTA */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-2xl glass-card flex-shrink-0">
+                  <TrendingUp className="w-6 h-6 text-primary" />
+                </div>
+                <p className="text-foreground text-lg md:text-xl font-semibold flex-1">
+                  Let's collaborate and build something extraordinary! ✨
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -94,13 +83,13 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="pt-6"
+              className="pt-4"
             >
-              <Button 
+              <Button
                 size="lg"
-                className="bg-gradient-to-r from-primary to-secondary border-0 hover:scale-105 transition-all duration-300 animate-pulse-glow"
+                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 border-0 hover:scale-105 hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all duration-300 group w-full sm:w-auto"
               >
-                <Download className="mr-2 h-5 w-5" />
+                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
                 Download Resume
               </Button>
             </motion.div>

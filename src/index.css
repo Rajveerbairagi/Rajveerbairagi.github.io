@@ -112,13 +112,23 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
-    cursor: none;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* Support for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -144,23 +154,68 @@ All colors MUST be HSL.
   
   .cursor-glow {
     position: fixed;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background: hsl(200 100% 50%);
+    background: radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%);
     pointer-events: none;
     z-index: 9999;
     mix-blend-mode: screen;
-    transition: transform 0.15s ease-out;
+    transition: transform 0.12s ease-out;
   }
   
   .cursor-trail {
     position: fixed;
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
-    background: hsl(270 80% 60%);
+    background: hsl(var(--primary) / 0.4);
     pointer-events: none;
     z-index: 9998;
+  }
+
+  /* Responsive improvements */
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+    
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cursor-glow,
+    .cursor-trail {
+      display: none;
+    }
+    
+    h1 {
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+    
+    h2 {
+      font-size: clamp(1.5rem, 5vw, 2.25rem);
+    }
+    
+    .glass-card {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+    
+    h2 {
+      font-size: clamp(1.25rem, 6vw, 1.875rem);
+    }
+    
+    .glass-card {
+      padding: 1rem;
+    }
   }
 }
