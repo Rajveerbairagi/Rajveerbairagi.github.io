@@ -145,20 +145,20 @@ const Contact = () => {
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "rajveer@example.com",
-                    href: "mailto:rajveer@example.com",
+                    value: "rajveerbairagi9@gmail.com",
+                    href: "mailto:rajveerbairagi9@gmail.com",
                   },
                   {
                     icon: Phone,
                     label: "Phone",
-                    value: "+91 XXXXX XXXXX",
-                    href: "tel:+91XXXXXXXXXX",
+                    value: "+91 8219334378",
+                    href: "tel:+918219334378",
                   },
                   {
                     icon: MapPin,
                     label: "Location",
-                    value: "India",
-                    href: "#",
+                    value: "Bhopal",
+                    href: "https://maps.app.goo.gl/UyFGJBRNVKyP6NgQ9",
                   },
                 ].map((item, index) => (
                   <motion.a

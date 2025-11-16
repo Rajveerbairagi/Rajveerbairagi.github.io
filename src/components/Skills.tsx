@@ -5,8 +5,8 @@ const skillCategories = [
   {
     category: "Development",
     skills: [
-      { name: "Web Development", icon: Code2, color: "from-primary to-accent", percentage: 95 },
-      { name: "App Development", icon: Smartphone, color: "from-secondary to-accent", percentage: 88 },
+      { name: "Full-Stack Development", icon: Code2, color: "from-primary to-accent", percentage: 95 },
+      { name: "AI Development (LangChain)", icon: Smartphone, color: "from-secondary to-accent", percentage: 88 },
       { name: "C++ Programming", icon: Cpu, color: "from-primary to-secondary", percentage: 80 },
     ]
   },

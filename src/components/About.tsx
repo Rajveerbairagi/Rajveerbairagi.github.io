@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section id="about" className="py-16 md:py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/5" />
-      
+
       <div className="container relative z-10 px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -85,13 +85,28 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="pt-4"
             >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 border-0 hover:scale-105 hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all duration-300 group w-full sm:w-auto"
+              <a
+                href="https://drive.google.com/file/d/1u7mAwby7bCT8J3hyNXxySC52IuWR1-V7/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                Download Resume
-              </Button>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-primary to-secondary
+      hover:from-primary/90 hover:to-secondary/90
+      border-0 hover:scale-105
+      hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]
+      transition-all duration-300
+      animate-pulse-glow   /* ← added glow animation */
+      group w-full sm:w-auto
+    "
+                >
+                  <Download className="mr-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+                  Download Resume
+                </Button>
+              </a>
+
+
             </motion.div>
           </motion.div>
         </motion.div>

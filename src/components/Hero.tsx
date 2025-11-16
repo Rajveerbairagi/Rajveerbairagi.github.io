@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Instagram, Sparkles } from "lucide-react";
+import { Github, Linkedin, Instagram, Sparkles, Twitter, X } from "lucide-react";
 import profileImage from "@/assets/profile.png";
 import { useEffect, useState } from "react";
 
@@ -64,7 +64,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container relative z-10 px-4 py-20">
+     <div className="container relative z-10 px-4 pt-0 pb-10 md:pb-16 lg:pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Profile Image */}
           <motion.div
@@ -130,7 +130,7 @@ const Hero = () => {
                 >
                   <div
                     style={{
-                      transform: `rotate(${rotation}deg) translateX(180px)`,
+                      transform: `rotate(${rotation}deg) translateX(240px)`,
                     }}
                     className="w-2 h-2 rounded-full shadow-lg shadow-current"
                   />
@@ -228,9 +228,10 @@ const Hero = () => {
               className="flex gap-4"
             >
               {[
-                { icon: Github, href: "#", label: "GitHub" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Instagram, href: "#", label: "Instagram" },
+                { icon: Github, href: "https://github.com/rajveerbairagi", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/rajveerbairagi", label: "LinkedIn" },
+                { icon: Instagram, href: "https://www.instagram.com/rajveer_051/", label: "Instagram" },
+                { icon: Twitter, href: "https://x.com/Rajveer_051", label: "twitter" },
               ].map((social, index) => (
                 <motion.a
                   key={index}
