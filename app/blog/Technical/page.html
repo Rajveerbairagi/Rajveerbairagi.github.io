@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why I Started Building CarbonsetuX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ECE7DA;
+    --ink:#1E241F;
+    --ink-soft:#585F51;
+    --amber:#AE6A2E;
+    --teal:#274F49;
+    --rule: rgba(30,36,32,0.16);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--paper); }
+
+  .wrap{
+    max-width:700px;
+    margin:0 auto;
+    padding:5rem 1.5rem 6rem;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin:0 0 1.4rem;
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.2rem, 6vw, 3.6rem);
+    line-height:1.06;
+    letter-spacing:-0.01em;
+    margin:0 0 1.4rem;
+    max-width:14ch;
+  }
+  h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--teal);
+  }
+
+  .subtitle{
+    font-size:1.12rem;
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:42ch;
+    margin:0 0 1.8rem;
+  }
+
+  .meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    display:flex;
+    gap:0.6rem;
+    align-items:center;
+    margin-bottom:2.6rem;
+  }
+  .meta span.dot{ opacity:0.5; }
+
+  .arc{ display:block; width:100%; height:auto; overflow:visible; }
+  .arc-hero{ margin:0 0 3rem; }
+  .arc-section{ margin:3.4rem 0 2.2rem; max-width:220px; }
+
+  .arc path{
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:draw 1.6s ease forwards 0.15s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  article p{
+    font-size:1.14rem;
+    line-height:1.78;
+    margin:0 0 1.3rem;
+    max-width:64ch;
+  }
+
+  article > section:first-of-type p:first-of-type::first-letter{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:3.4rem;
+    line-height:0.78;
+    float:left;
+    padding:0.1rem 0.35rem 0 0;
+    color:var(--amber);
+  }
+
+  h2{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.55rem;
+    color:var(--teal);
+    margin:0 0 1.1rem;
+    letter-spacing:-0.005em;
+  }
+
+  .closing p{
+    font-family:'Fraunces', serif;
+    font-size:1.28rem;
+    line-height:1.68;
+    font-weight:400;
+    color:var(--ink);
+  }
+
+  footer{
+    margin-top:4rem;
+    padding-top:1.8rem;
+    border-top:1px solid var(--rule);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.6rem;
+  }
+
+  .fade{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .arc path{ animation:none; stroke-dashoffset:0; }
+    .fade{ opacity:1; transform:none; transition:none; }
+  }
+
+  @media (max-width:560px){
+    .wrap{ padding:3.4rem 1.25rem 4rem; }
+    h1{ max-width:none; }
+    article p{ font-size:1.06rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Personal essay</p>
+  <h1>Why I started building <em>CarbonsetuX</em></h1>
+  <p class="subtitle">Notes on climate anxiety, information gaps, and why I think software has a small but real part to play.</p>
+  <div class="meta"><span>6 min read</span><span class="dot">&middot;</span><span>Field notes from a CS student</span></div>
+
+  <svg class="arc arc-hero" viewBox="0 0 640 80" role="img" aria-label="Illustration of a suspension bridge cable, symbolizing a bridge between people and their environmental impact">
+    <defs>
+      <linearGradient id="bridgeGradHero" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#AE6A2E"/>
+        <stop offset="100%" stop-color="#274F49"/>
+      </linearGradient>
+    </defs>
+    <line x1="20" y1="64" x2="620" y2="64" stroke="var(--rule)" stroke-width="1"/>
+    <path d="M20,64 Q320,4 620,64" fill="none" stroke="url(#bridgeGradHero)" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="110" y1="48.7" x2="110" y2="64" stroke="var(--ink-soft)" stroke-width="1" opacity="0.55"/>
+    <line x1="200" y1="38.8" x2="200" y2="64" stroke="var(--ink-soft)" stroke-width="1" opacity="0.55"/>
+    <line x1="290" y1="34.3" x2="290" y2="64" stroke="var(--ink-soft)" stroke-width="1" opacity="0.55"/>
+    <line x1="350" y1="34.3" x2="350" y2="64" stroke="var(--ink-soft)" stroke-width="1" opacity="0.55"/>
+    <line x1="440" y1="38.8" x2="440" y2="64" stroke="var(--ink-soft)" stroke-width="1" opacity="0.55"/>
+    <line x1="530" y1="48.7" x2="530" y2="64" stroke="var(--ink-soft)" stroke-width="1" opacity="0.55"/>
+  </svg>
+
+  <article>
+
+  <section class="fade">
+    <p>I don't remember the exact moment climate change stopped being an abstract topic for me and became something I actually thought about before falling asleep. It probably wasn't one moment at all. It was a slow accumulation of headlines about record-breaking heat, cities running out of water, and scientists sounding more and more tired of repeating themselves. Somewhere in that accumulation, a question started forming in my head that I couldn't quite shake: what am I actually doing about any of this?</p>
+    <p>I'm a computer science student. Most of my days are spent writing code, debugging things that shouldn't be broken, and learning how systems talk to each other. None of that felt directly connected to something as enormous as climate change. Climate change is the kind of problem that gets discussed in terms of gigatons and global treaties and decades-long timelines. It's hard to see where a single person, let alone a single line of code, fits into that picture.</p>
+    <p>But the more I read about it, the more I realized that this disconnect &mdash; between caring about the problem and knowing how to act on it &mdash; isn't just my problem. It's almost everyone's.</p>
+  </section>
+
+  <svg class="arc arc-section fade" viewBox="0 0 220 30" role="presentation" aria-hidden="true">
+    <path d="M6,24 Q110,2 214,24" fill="none" stroke="url(#bridgeGradHero)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+  </svg>
+
+  <section class="fade">
+    <h2>The gap between caring and doing</h2>
+    <p>I've talked to a lot of people who genuinely want to live more sustainably. They recycle, they think twice about flights, they feel a small pang of guilt when they leave the AC running. But when you ask them how much carbon their household actually produces in a year, or which of their habits matter most, almost nobody knows. The information exists somewhere &mdash; in research papers, government reports, sustainability frameworks &mdash; but it's scattered, dense, and not built for a regular person trying to make better decisions on an ordinary Tuesday.</p>
+    <p>This is what struck me most: climate change isn't only a science problem or a policy problem. It's also an information problem. People are willing to act, but they're missing the tools to understand their own impact and to know what would actually move the needle. Without that, sustainability turns into guesswork, or worse, guilt without direction. That gap is where I started thinking, as a developer, that I might actually have something to contribute.</p>
+  </section>
+
+  <svg class="arc arc-section fade" viewBox="0 0 220 30" role="presentation" aria-hidden="true">
+    <path d="M6,24 Q110,2 214,24" fill="none" stroke="url(#bridgeGradHero)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+  </svg>
+
+  <section class="fade">
+    <h2>Why data and AI, and not just awareness</h2>
+    <p>There's no shortage of content telling people that the planet is in trouble. Documentaries, articles, infographics &mdash; most of it is well-intentioned, and some of it is genuinely important. But I've noticed that a constant stream of alarming statistics tends to produce one of two reactions: anxiety or numbness. Neither of those helps someone actually reduce their emissions.</p>
+    <p>What I kept coming back to was a simpler idea: if people had a clear, personalized picture of their own carbon footprint &mdash; not global numbers, but numbers about their own home, their own commute, their own habits &mdash; they could make decisions instead of just absorbing dread. This is also where I think AI can be genuinely useful, not as a buzzword, but as a practical layer between raw data and everyday decisions: helping translate a spreadsheet of emissions factors into something closer to, here's where most of your footprint is coming from, and here are a few realistic ways to bring it down.</p>
+  </section>
+
+  <svg class="arc arc-section fade" viewBox="0 0 220 30" role="presentation" aria-hidden="true">
+    <path d="M6,24 Q110,2 214,24" fill="none" stroke="url(#bridgeGradHero)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+  </svg>
+
+  <section class="fade">
+    <h2>Where CarbonsetuX comes from</h2>
+    <p>CarbonsetuX started as an idea I kept sketching out in notebooks and half-finished repositories before it had a name. The word "setu" means "bridge" in Hindi, and that's really the core of what I wanted to build: a bridge between wanting to help the environment and knowing how to do it. Not a lecture. Not another dashboard full of numbers nobody has time to decode. A bridge.</p>
+    <p>My vision for CarbonsetuX is to build a platform that helps people &mdash; and eventually organizations and even governments &mdash; understand, track, and gradually reduce their carbon footprint. At the individual level, it's about helping someone see the real shape of their own emissions. At the organizational level, it's about giving companies a clearer, more continuous way to track their environmental impact instead of relying on once-a-year sustainability reports. And at the government level, I imagine a future where policymakers have better, more granular data to understand how communities are actually doing.</p>
+    <p>I want to be honest about where this stands today. CarbonsetuX is still very much a vision I'm building toward, not a finished product. The core features I'm designing around are carbon footprint estimation grounded in someone's actual lifestyle, personalized recommendations instead of generic advice, AI-driven insights that surface patterns people wouldn't notice on their own, sustainability tracking that measures progress over months rather than guesses, and environmental analytics that reveal trends over time. None of these are meant to be flashy. They're meant to be useful.</p>
+  </section>
+
+  <svg class="arc arc-section fade" viewBox="0 0 220 30" role="presentation" aria-hidden="true">
+    <path d="M6,24 Q110,2 214,24" fill="none" stroke="url(#bridgeGradHero)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+  </svg>
+
+  <section class="fade">
+    <h2>Empowering people, not overwhelming them</h2>
+    <p>If there's one principle I keep returning to while designing this, it's that technology built for sustainability should make people feel more capable, not more anxious. It's easy to build something that just throws statistics at users. It's harder, and more valuable, to build something that says: here's where you stand, and here's a reasonable next step you can actually take.</p>
+    <p>Fear can get someone's attention for a moment, but it rarely sustains behavior change. Clarity and agency do. My goal with CarbonsetuX isn't to make people feel bad about their footprint. It's to give them enough understanding that reducing it starts to feel achievable, one decision at a time.</p>
+  </section>
+
+  <svg class="arc arc-section fade" viewBox="0 0 220 30" role="presentation" aria-hidden="true">
+    <path d="M6,24 Q110,2 214,24" fill="none" stroke="url(#bridgeGradHero)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+  </svg>
+
+  <section class="fade closing">
+    <h2>Why I'm doing this</h2>
+    <p>I keep coming back to something fairly simple. I'm a software developer, and the thing I know how to do is build systems that turn complicated information into something usable. Climate change is complicated. Individual action often feels powerless against something so large. But I don't think that means software has no role to play &mdash; only that the role has to be thoughtful, honest about its limits, and genuinely useful rather than performative.</p>
+    <p>Building CarbonsetuX is my attempt at that. I don't expect it to solve climate change on its own &mdash; no single platform will. But I do believe that if enough people have clearer visibility into their own impact, the collective effect of many small, informed decisions can add up to something real.</p>
+    <p>At the end of the day, I think building software is really about solving problems that matter to people. CarbonsetuX is my way of bringing that belief and this problem together &mdash; using what I know how to build, in service of a challenge I don't think I can ignore.</p>
+  </section>
+
+  </article>
+
+  <footer>
+    <span>Written while building CarbonsetuX</span>
+    <span>setu &middot; noun &middot; bridge</span>
+  </footer>
+
+</div>
+
+<script>
+  var els = document.querySelectorAll('.fade');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>

@@ -10,6 +10,11 @@ const blogPosts = [
         category:"non-tech",
         href: "/blog/movies-i-love",
     },
+     {
+        title: "Why I started building CarbonsetuX",
+        category:"tech",
+        href: "/blog/Technical",
+    },
     
 ]
 
