@@ -1,7 +1,9 @@
 export default function Skills() {
   return (
     <section className="mb-20">
-      <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-border">technical skills</h2>
+      <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-border">
+        Technical Skills
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
@@ -10,34 +12,40 @@ export default function Skills() {
             <li>• Next.js & React</li>
             <li>• TypeScript</li>
             <li>• Tailwind CSS</li>
+            <li>• Framer Motion</li>
           </ul>
         </div>
+
         <div>
-          <h3 className="font-semibold mb-3">Backend</h3>
+          <h3 className="font-semibold mb-3">Backend & APIs</h3>
           <ul className="text-sm space-y-1 text-muted-foreground">
-            <li>• Node.js & Python</li>
+            <li>• Node.js</li>
+            <li>• FastAPI</li>
+            <li>• Express.js</li>
+            <li>• REST APIs</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-semibold mb-3">Database & AI</h3>
+          <ul className="text-sm space-y-1 text-muted-foreground">
             <li>• PostgreSQL</li>
-            <li>• Redis & Caching</li>
+            <li>• Prisma</li>
+            <li>• Redis</li>
+            <li>• LangChain & ChromaDB</li>
           </ul>
         </div>
+
         <div>
-          <h3 className="font-semibold mb-3">DevOps</h3>
-          <ul className="text-sm space-y-1 text-muted-foreground">
-            <li>• Docker & Kubernetes</li>
-            <li>• CI/CD Pipelines</li>
-            <li>• Cloud Infrastructure</li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="font-semibold mb-3">Tools & Platforms</h3>
+          <h3 className="font-semibold mb-3">Tools</h3>
           <ul className="text-sm space-y-1 text-muted-foreground">
             <li>• Git & GitHub</li>
-            <li>• AWS & Vercel</li>
-            <li>• Linux & Command Line</li>
+            <li>• Docker</li>
+            <li>• Vercel</li>
+            <li>• Appwrite & Supabase</li>
           </ul>
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -66,8 +66,14 @@ export default function Hero() {
         </p>
         <p className="text-sm">
           <span className="font-semibold">wanna chat?</span>{" "}
-          <a href="https://cal.com/shashwat-jain-qyhfub/let-s-talk" className="underline hover:text-muted-foreground transition">
+          <a href="https://cal.com/rajveer-bairagi-ibtr2i" className="underline hover:text-muted-foreground transition">
             let&apos;s talk
+          </a>
+        </p>
+        <p className="text-sm">
+          <span className="font-semibold">Resume:</span>{" "}
+          <a href="https://drive.google.com/file/d/1ClobPmfesi12jPKeOhOWeGWy2Z4xOVf0/view" className="underline hover:text-muted-foreground transition">
+            View
           </a>
         </p>
       </div>

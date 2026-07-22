@@ -31,4 +31,9 @@ const withMDX = createMDX({
 })
  
 // Merge MDX config with Next.js config
-export default withMDX(nextConfig)
+const config = withMDX(nextConfig)
+if (config.turbopack?.conditions) {
+  delete config.turbopack.conditions
+}
+
+export default config
